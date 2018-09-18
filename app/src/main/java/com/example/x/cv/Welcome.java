@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,9 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.x.cv.activities.Activities;
+import com.example.x.cv.memories.MemoriesActivity;
+import com.example.x.cv.education_activity.EducationActivity;
 
 import com.example.x.cv.previous_work.PreviousWorkActivity;
 
@@ -68,6 +70,7 @@ public class Welcome extends AppCompatActivity {
             Uri facebook = Uri.parse("https://www.facebook.com");
             Intent faceIntent = new Intent(Intent.ACTION_VIEW, facebook);
             startActivity(faceIntent);
+
             return true;
         } else if (item.getItemId() == R.id.action_google) {
 
@@ -88,9 +91,13 @@ public class Welcome extends AppCompatActivity {
 
             return true;
 
+        }  else if (item.getItemId() == R.id.action_activities) {
+
+            startActivity(new Intent(Welcome.this, Activities.class));
+            return true;
         } else if (item.getItemId() == R.id.action_previous_education) {
 
-            startActivity(new Intent(Welcome.this,EducationActivity.class));
+            startActivity(new Intent(Welcome.this, EducationActivity.class));
             return true;
 
         } else if (item.getItemId() == R.id.action_previous_work) {
@@ -100,7 +107,7 @@ public class Welcome extends AppCompatActivity {
 
         } else if (item.getItemId() == R.id.action_memories) {
 
-
+            startActivity(new Intent(Welcome.this, MemoriesActivity.class));
             return true;
 
         } else if (item.getItemId() == R.id.action_logout) {
